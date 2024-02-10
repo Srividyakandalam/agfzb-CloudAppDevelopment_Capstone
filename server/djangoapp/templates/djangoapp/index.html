@@ -47,7 +47,37 @@
         </div>
     </nav>
     <!--Add a dealer table here -->
-<p>this is index page</p> 
+<main role="main" class="container pt-3">
+    <h1 class="mt-2 mb-4">Dealerships</h1>
+    <table class="table" id ="table" data-filter-control=True>
+        <thead>
+            <tr>
+                <th data_field="id">ID</th>
+                <th data_field ="dealership_name">Dealership Name</th>
+                <th data_field="city">City</th>
+                <th data_field="adress">Adress</th>
+                <th data_field="zip_code">Zip Code</th>
+                <th data_field="State" data-filter-control="select">State</th>                
+            </tr>
+            <tbody>
+                {% for dealer in dealership_list %}
+                <tr>
+                <td>{{dealer.id}}</td>
+                <td ><a href="{% url 'djangoapp:dealership_details' dealer.id %}">((dealer.dealership_name))</a></td>
+                <td>{{dealer.city}}</td>
+                <td>{{dealer.adress}}</td>
+                <td>{{dealer.zip_code}}</td>
+                <td>{{dealer.state}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+       
+
+
+        </thead>
+    </table>
+</main>    
+
 
     
 <footer class="navbar navbar-light bg-light" style="position: absolute; bottom: 0; width: 100%;">
@@ -56,7 +86,7 @@
           <a class="navbar-brand" href="{% url 'djangoapp:contact' %}">Contact Us</a>
         </div>
         <div class="text-center p-3">
-            © 2022 <a class="text-dark" href="{% url 'djangoapp:index' %}">Dealership Review</a>
+             <a class="text-dark" href="{% url 'djangoapp:index' %}">Dealership Review</a>
         </div>
     </div>
 </footer>

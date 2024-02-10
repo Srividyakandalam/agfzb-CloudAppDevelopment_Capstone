@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404, render, redirect
 # from .models import related models
+
 # from .restapis import related methods
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
@@ -42,18 +43,16 @@ def login_request(request):
             return redirect("djangoapp:index")
 
 
+
+
+# ...
+# Create a `logout_request` view to handle sign out request
 def logout_request(request):
     logout(request)
     return redirect('djangoapp:index')
 
-# ...
-# Create a `logout_request` view to handle sign out request
-# def logout_request(request):
-# ...
-
 # Create a `registration_request` view to handle sign up request
-# def registration_request(request):
-# ...
+
 def registration_request(request):
     context = {}
     if request.method == 'GET':
@@ -90,8 +89,7 @@ def get_dealerships(request):
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
-# def get_dealer_details(request, dealer_id):
-# ...
+
 
 # Create a `add_review` view to submit a review
 # def add_review(request, dealer_id):
